@@ -1,0 +1,22 @@
+To fix the problem, you must define the dimensions of the parent container explicitly.  Here's an example:
+
+/*bug.css*/
+.parent {
+  /*width and height are missing. This causes the problem*/
+}
+.child {
+  width: calc(50% - 10px);
+  background-color: lightblue;
+}
+
+/*bugSolution.css*/
+.parent {
+  width: 500px; /* Explicitly define parent width */
+  height: 200px; /* Explicitly define parent height*/
+}
+.child {
+  width: calc(50% - 10px);
+  background-color: lightblue;
+}
+
+In `bugSolution.css`, by adding `width: 500px;` to the parent, the `50%` in the child element's `calc()` now resolves correctly, leading to the expected width.
